@@ -35,15 +35,15 @@ body {
   display: flex;
 }
 .todo-list {
-  margin:0;
+  margin: 0;
   padding: 0px;
 }
 .task-item,
 .task-list-title {
-  list-style:none;
+  list-style: none;
 }
 input,button{
-  outline:none;
+  outline: none;
 }
 button {
   background: none;
@@ -59,7 +59,7 @@ button:hover {
 }
 /* Heading */
 .task-list-title,
-.new-task-label[for="new-task-input"] {
+.new-task-label {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -85,7 +85,7 @@ button:hover {
 }
 
 /* New Task */
-.new-task-label[for="new-task-input"] {
+.new-task-label {
   display: block;
   margin: 0 0 20px;
 }
@@ -136,14 +136,14 @@ button:hover {
 
 /* Edit Task */
 .task-item .task-input {
-  display:none
+  display: none
 }
 
 .edit-mode-task .task-input {
-  display:inline-block;
-  width:224px
+  display: inline-block;
+  width: 224px
 }
 
 .edit-mode-task .task-label {
-  display:none;
+  display: none;
 }
