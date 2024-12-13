@@ -8,9 +8,9 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-task");//Add a new task.
-var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("todo-list");//ul of #todo-list
+var taskInput=document.getElementById("new-task-input");//Add a new task.
+var addButton=document.querySelector(".task-submit-btn");//first button
+var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
 
@@ -32,13 +32,16 @@ var createNewTaskElement=function(taskString){
   var deleteButton=document.createElement("button");//delete button
   var deleteButtonImg=document.createElement("img");//delete button image
 
+  listItem.className = 'task-item'
+
   label.innerText=taskString;
   label.className='task-label';
 
   //Each elements, needs appending
   checkBox.type="checkbox";
+  checkBox.className = 'task-checkbox'
   editInput.type="text";
-  editInput.className="task-label";
+  editInput.className="task-input";
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
   editButton.className="task-edit-btn";
@@ -83,7 +86,7 @@ var editTask=function(){
   var listItem=this.parentNode;
 
   var editInput=listItem.querySelector('input[type=text]');
-  var label=listItem.querySelector("label");
+  var label=listItem.querySelector(".task-label");
   var editBtn=listItem.querySelector(".task-edit-btn");
   var containsClass=listItem.classList.contains("edit-mode-task");
   //If class of the parent is .editmode
@@ -131,7 +134,7 @@ var taskIncomplete=function(){
   console.log("Incomplete Task...");
 //Mark task as incomplete.
   //When the checkbox is unchecked
-  //Append the task list item to the #todo-list.
+  //Append the task list item to the #incomplete-tasks.
   var listItem=this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
